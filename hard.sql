@@ -44,10 +44,6 @@ SELECT director_first_name, director_last_name, CONCAT( director_first_name, ' '
 list, remove the Movies where the Last Name ends with ”R-Z” */
 SELECT * FROM movies order by director_last_name;
 
-DELETE FROM movies WHERE SUBSTRING(director_last_name, -1, 1) = "r" 
-OR SUBSTRING(director_last_name, -1, 1) = "s" OR SUBSTRING(director_last_name, -1, 1) = "t" OR SUBSTRING(director_last_name, -1, 1) = "u"
-OR SUBSTRING(director_last_name, -1, 1) = "v" OR SUBSTRING(director_last_name, -1, 1) = "w" OR SUBSTRING(director_last_name, -1, 1) = "x"
-OR SUBSTRING(director_last_name, -1, 1) = "y" OR SUBSTRING(director_last_name, -1, 1) = "z";
-
+DELETE FROM movies WHERE director_last_name REGEXP '[R-Z]$';
 /* Write a query where the first three appear */
 SELECT * FROM movies LIMIT 3;
